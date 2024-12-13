@@ -1,0 +1,91 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+    font-family: 'Arial', sans-serif;
+    background-color: #4d6607; /* Dark green background */
+    color: #fff;
+  }
+  
+  header {
+    background-color: #4d5537; /* Matches the body background */
+    padding: 20px 40px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Logo */
+  .logo img {
+    height: 40px; /* Adjust logo size */
+  }
+  
+  .logo a {
+    text-decoration: none;
+  }
+  
+  /* Navigation menu */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .nav-links a:hover {
+    color: #c3d4a3; /* Light green hover effect */
+  }
+  
+  /* Authentication buttons */
+  .auth-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .auth-buttons a {
+    text-decoration: none;
+    color: #4d5537; /* Dark green text */
+    background-color: #e9f1d1; /* Light green background */
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .auth-buttons .signup-btn {
+    border: 2px solid #e9f1d1;
+    background-color: transparent;
+    color: #e9f1d1;
+  }
+  
+  .auth-buttons a:hover {
+    background-color: #acea39;
+    color: #485c10; /* Darker color on hover */
+  }
+  
+  /* Alignments */
+  .nav-links {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+  

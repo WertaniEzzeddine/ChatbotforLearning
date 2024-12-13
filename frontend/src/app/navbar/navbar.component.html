@@ -1,0 +1,22 @@
+
+    <body>
+        <header>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">More <span>&#9662;</span></a></li>
+                </ul>
+                <div class="auth-buttons" *ngIf="!booleanValue">
+                    <a routerLink="/login" class="login-btn">Login</a>
+                    <a routerLink="/signup" class="signup-btn">Sign Up</a>
+                </div>
+                <div class="auth-buttons" style="color:white" *ngIf="booleanValue">
+                    
+                    <a routerLink="" (click)="logout()" class="login-btn">Logout</a>
+                
+                </div>
+            </nav>
+        </header>
+    </body>

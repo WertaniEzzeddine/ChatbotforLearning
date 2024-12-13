@@ -1,0 +1,473 @@
+/* Main container */
+.chatbox {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background: #f9f9f9;
+}
+
+.messages {
+  height: 100%;
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.input-section {
+  display: flex;
+}
+
+.input-section input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-section button {
+  padding: 8px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.user-message {
+  text-align: right;
+  background-color: #d1ffd1;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.bot-message {
+  text-align: left;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.courses {
+ 
+  border-radius: 9px;
+  width: 100%; /* Adjust width to suit your layout */
+  box-shadow: 0 0px 8px rgba(97, 71, 71, 0.1); /* Subtle shadow for depth */
+  font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+}
+
+/* Button styles */
+.courses button {
+  display: flex; /* Align icon and text in a row */
+  align-items: center; /* Center content vertically */
+  justify-content: flex-start; /* Align content to the left */
+  width: 100%;
+ 
+
+  margin: 10px 0; /* Spacing between buttons */
+  /* White background for buttons */
+  border: 1px solid #ddd; /* Light border for structure */
+  border-radius: 8px; /* Rounded corners */
+  color: #333; /* Darker text color */
+  font-size: 16px; /* Readable font size */
+  text-align: left;
+  cursor: pointer; /* Pointer on hover */
+  transition: all 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+/* Icon styles */
+.courses .icon {
+  margin-right: 12px; /* Space between icon and text */
+  font-size: 18px; /* Icon size slightly larger than text */
+  color: #6c63ff; /* Stylish accent color for the icons */
+}
+
+/* Course name styles */
+.courses .course-name {
+  font-weight: 500; /* Semi-bold for better readability */
+}
+
+/* Hover effect */
+.courses button:hover {
+  background-color: #6c63ff; /* Accent color on hover */
+  color: #ffffff; /* White text on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.courses button:hover .icon {
+  color: #ffffff; /* White icon on hover */
+}
+
+
+.chatbot-container {
+  display: flex;
+  height: 100vh; /* Full screen height */
+  width: 100%; /* Full screen width */
+  background-color: #fdfaf3; /* Light background for the chat area */
+  box-sizing: border-box; // Light beige for the whole app background
+  
+  /* Sidebar */
+  .sidebar {
+
+    background-color: #1e3622; // Dark green sidebar
+    min-width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+
+    h1 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .new-course {
+      background-color: #2f5231;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .courses {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+    
+    .courses button {
+      border: none;
+      height: 36px;
+      background-color: #223926; /* Dark green background */
+      color: #ffffff; /* White text for contrast */
+      display: flex; /* Ensures content inside the button is aligned properly */
+      align-items: center; /* Vertically center content */
+      justify-content: center; /* Horizontally center content */
+      flex-shrink: 0;
+      margin: 15px 0;
+      padding: 0 12px; /* Added padding for better spacing */
+      cursor: pointer;
+      font-size: 14px; /* Set a consistent font size */
+      font-weight: 500; /* Optional for better emphasis */
+      border-radius: 4px; /* Smooth rounded corners for better design */
+      transition: background-color 0.3s ease; /* Smooth hover effect */
+    }
+    
+    .courses button:hover {
+      background-color: #1b2f20; /* Slightly darker green on hover */
+    }
+    
+    .courses button svg {
+      margin-right: 8px; /* Adjusted for a more balanced space */
+      flex-shrink: 0; /* Prevent the icon from resizing */
+    }
+    
+    .courses button:focus {
+      outline: 2px solid #ffffff; /* Add focus outline for accessibility */
+      outline-offset: 2px;
+    }
+    
+
+    .upgrade {
+      background-color: #2f5231;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  /* Outer container to center the form */
+.new-course-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Ensures it stays in the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for focus */
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* Form styling */
+.new-course-form {
+  background-color: #fff; /* White background */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  width: 350px; /* Adjust as needed */
+  text-align: center;
+}
+
+/* Heading styling */
+.new-course-form h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #4d5537; /* Dark green */
+}
+
+/* Field wrapper */
+.field {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* Label styling */
+.field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Input styling */
+.field input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Buttons styling */
+.new-course-form button {
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.new-course-form button:first-of-type {
+  background-color: #4d5537; /* Dark green */
+  color: #fff;
+}
+
+.new-course-form button:first-of-type:hover {
+  background-color: #6a744e; /* Slightly lighter green */
+}
+
+.new-course-form button:last-of-type {
+  background-color: transparent;
+  color: #4d5537;
+  border: 1px solid #4d5537;
+}
+.new-course-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4d5537; /* Dark green background */
+  border: none;
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.new-course-button:hover {
+  background-color: #6a744e; /* Lighter green on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.new-course-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(72, 85, 55, 0.5); /* Focus ring */
+}
+
+.new-course-button span {
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+
+.new-course-form button:last-of-type:hover {
+  background-color: #e9f1d1; /* Light green */
+  color: #4d5537;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content at the top */
+    background-color: #fdfaf3; // Light beige for the central content
+    padding: 20px;
+    position: relative;
+    height: 100%;
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      h2 {
+        font-size: 1.5rem;
+        color: #1e3622;
+        margin-right: 20px;
+      }
+
+      button {
+        background-color: #2f5231;
+        color: #ffffff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 5px; // Adjust spacing between buttons
+      }
+    }
+
+
+
+    .summary {
+      max-height: 700px; /* Set a maximum height for the scrollable area */
+      overflow-y: auto; /* Enable vertical scrolling */
+      padding: 10px; /* Optional: Add padding inside the scrollable area */
+      border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+      background-color: #f9f9f9; /* Optional: Add a background color */
+    }
+    
+    .summary p {
+      font-size: 1.2rem;
+      color: #1e3622;
+      margin: 0; /* Optional: Remove default margins for paragraphs */
+    }
+    
+
+
+    }
+  }
+
+  /* Answer Section */
+  .answer-section {
+  flex:1;
+  position: sticky;  
+  right: 0px;
+    height: 816px;
+    margin-right: 0px;
+    overflow-y: auto;
+    
+    min-width: 400px;
+    background-color: #eaf6e9; // Light green for answer section
+    padding: 10px;
+
+    p {
+      background-color:#eaf6e9 ;
+      white-space: pre-line;
+      
+      color: #1e3622;
+      font-size: 1rem;
+    }
+  }
+
+
+
+.bottom{
+  width: 50%;
+  position: fixed;
+  bottom: 20px;
+  left: 46%;               /* Start at the middle of the viewport */
+  transform: translateX(-50%); /* Shift back by 50% of the element's width */
+}
+
+.main{
+  position: fixed;
+  display: flex;
+  justify-content:space-between;
+  top: 74px;
+  height: 100%;
+  flex-wrap: nowrap;
+}
+.action-buttons {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  
+
+  button {
+    background-color: #2f5231;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 1; /* Make buttons stretch */
+  }
+}
+
+.input-area {
+  margin-top: auto; /* Push input to the bottom */
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+  input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  .send-button {
+    background-color: #2f5231;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }

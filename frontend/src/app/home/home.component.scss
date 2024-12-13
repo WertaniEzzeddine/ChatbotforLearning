@@ -1,0 +1,35 @@
+
+  
+  main {
+    text-align: center;
+    padding: 3rem 1rem; /* Space around the content */
+  }
+  
+  main h1 {
+    font-size: 2.5rem; /* Large title size */
+    font-weight: bold;
+  }
+  
+  main p {
+    margin-top: 1rem;
+    font-size: 1.2rem; /* Slightly smaller subtitle */
+  }
+  
+  main .btn {
+    display: inline-block;
+    margin: 1rem 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    background-color: #eef5da; /* Light button background */
+    color: #4d5537; /* Button text color */
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  main .btn:hover {
+    background-color: #d4e6b5; /* Slightly darker for hover effect */
+  }
+  

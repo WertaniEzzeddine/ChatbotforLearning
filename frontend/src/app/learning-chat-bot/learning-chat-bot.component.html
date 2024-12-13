@@ -1,0 +1,113 @@
+<div class="chatbot-container">
+  <!-- Sidebar -->
+  <div class="main">
+  <div class="sidebar">
+    <h1>Learning CHATBOT</h1>
+    <button (click)="toggleNewCourseForm()" class="new-course-button">
+      <span>+ New Course</span>
+    </button>
+    
+    <div class="courses">
+      <h3 style="margin-left: 40px;">Previous courses:</h3>
+      <button (click)="loadChatHistory(course)" *ngFor="let course of courses">
+        <span class="icon">
+          <i class="fa fa-book"></i> <!-- Example icon -->
+        </span>
+        <span class="course-name">{{ course.name }}</span>
+      </button>
+    </div>
+    
+    
+    <button class="upgrade">Upgrade to Plus</button>
+  </div>
+
+ <div *ngIf="!currentCourse">
+  <div class="main-content" >
+    <h2 style="color: black;">hello</h2>
+
+ </div>
+ </div> 
+<div style="display: flex;" *ngIf="currentCourse">
+  <!-- Main Content -->
+  <div  class="main-content" >
+      <div class="header">
+        <h2>{{currentCourse.name}}</h2>
+        <button (click)="Summarize=true">Summarization</button>
+        <button (click)="Summarize=false">Exam</button>
+      </div>
+      <div >
+        <div class="summary" *ngIf="Summarize">
+          <p style=" white-space: pre-line;">{{currentCourse.summary}}</p>
+        </div>
+        <div class="summary" *ngIf="!Summarize">
+          <p style=" white-space: pre-line;">{{currentCourse.exam}}</p>
+        </div>
+      </div>
+
+  </div>
+ 
+    <!-- Answer Section -->
+    <div *ngIf="Summarize" class="answer-section" >
+      <div class="chatbox">
+         <div class="messages">
+            <div *ngFor="let message of chatMessages">
+               <p [ngClass]="{ 'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot' }">
+                  {{ message.text }}
+               </p>
+            </div>
+         </div>
+         <div class="input-section">
+            <input type="text" [(ngModel)]="queryText" placeholder="Type your message..." />
+            <button (click)="sendMessage()">Send</button>
+         </div>
+      </div>
+   </div>
+   
+    <div *ngIf="!Summarize" class="answer-section" >
+      <input style="margin-left: 120px; margin-top: 20px;" type="checkbox" [(ngModel)]="isToggled" />
+      <span style="color: black;" *ngIf="isToggled">Show Conversation</span>
+      <p *ngIf="isToggled">{{currentCourse.exam_correction}}</p>
+      <span style="color: black;" *ngIf="!isToggled">Show Answers</span>
+      <p *ngIf="!isToggled">{{currentCourse.conversation}}</p>
+    </div>
+  </div>
+</div>
+
+ 
+
+   
+
+ 
+
+
+
+  <!-- New Course Form (Conditional Display) -->
+  <div *ngIf="showNewCourseForm" class="new-course-form-container">
+    <div class="new-course-form">
+      <h2>Create New Course</h2>
+      
+      <div class="field">
+        <label for="courseName">Course Name</label>
+        <input 
+          type="text" 
+          id="courseName" 
+          [(ngModel)]="name" 
+          placeholder="Enter course name" 
+        />
+      </div>
+  
+      <div class="field">
+        <label for="fileUpload">Upload Course Material</label>
+        <input 
+          type="file" 
+          id="fileUpload" 
+          (change)="onFileUpload($event)" 
+          accept=".pdf" 
+        />
+      </div>
+  
+      <button (click)="handleFormSubmission()">Submit</button>
+      <button (click)="toggleNewCourseForm()">Cancel</button>
+    </div>
+  </div>
+  
